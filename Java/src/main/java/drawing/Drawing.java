@@ -30,10 +30,12 @@ public class Drawing {
      */
     public void draw(String format, String filename) {
         // TODO: Do you notice any issues here?
+        // just use if ... else... to define which wirter to use
         if (format.equals("jpeg")) {
             try (Writer writer = new JPEGWriter(filename + ".jpeg")) {
                 for (Shape shape : this.shapes) {
                     // TODO: What is the issue of the behavior here?
+                    // Feature envy
                     Line[] lines = shape.toLines();
                     shape.draw(writer, lines);
                 }
